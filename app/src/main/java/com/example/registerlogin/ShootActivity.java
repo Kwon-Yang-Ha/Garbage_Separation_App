@@ -50,7 +50,7 @@ public class ShootActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoot);
 
-        //TODO ask for permission of camera upon first launch of application
+        //TODO는 애플리케이션을 처음 시작할 때 카메라의 허가 요청청
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_DENIED){
@@ -70,7 +70,7 @@ public class ShootActivity extends AppCompatActivity {
                 galleryActivityResultLauncher.launch(galleryIntent);
             }
         });
-
+        //카메라를 사용하여 이미지 캡처
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +92,7 @@ public class ShootActivity extends AppCompatActivity {
     }
 
     Uri image_uri;
-    //TODO opens camera so that user can capture image
+    //사용자가 이미지를 캡처할 수 있도록 카메라 열기기
     private void openCamera() {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
@@ -103,7 +103,7 @@ public class ShootActivity extends AppCompatActivity {
         cameraActivityResultLauncher.launch(cameraIntent);
     }
 
-    //TODO capture the image using camera and display it
+    //카메라를 사용하여 이미지를 캡처하고 표시
     ActivityResultLauncher<Intent> cameraActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -133,7 +133,7 @@ public class ShootActivity extends AppCompatActivity {
         return  null;
     }
 
-    //TODO rotate image if image captured on samsung devices
+    //이미지의 URL을 가져가 비트맵을 반환환
     //TODO Most phone cameras are landscape, meaning if you take the photo in portrait, the resulting photos will be rotated 90 degrees.
     @SuppressLint("Range")
     public Bitmap rotateBitmap(Bitmap input){
