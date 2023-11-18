@@ -118,7 +118,7 @@ public class ShootActivity extends AppCompatActivity {
                 }
             });
 
-    //TODO takes URI of the image and returns bitmap
+    //이미지의 URL을 가져가 비트맵을 반환
     private Bitmap uriToBitmap(Uri selectedFileUri) {
         try {
             ParcelFileDescriptor parcelFileDescriptor =
@@ -133,8 +133,7 @@ public class ShootActivity extends AppCompatActivity {
         return  null;
     }
 
-    //이미지의 URL을 가져가 비트맵을 반환환
-    //TODO Most phone cameras are landscape, meaning if you take the photo in portrait, the resulting photos will be rotated 90 degrees.
+    //이미지가 캡처된 경우 이미지 회전
     @SuppressLint("Range")
     public Bitmap rotateBitmap(Bitmap input){
         String[] orientationColumn = {MediaStore.Images.Media.ORIENTATION};
