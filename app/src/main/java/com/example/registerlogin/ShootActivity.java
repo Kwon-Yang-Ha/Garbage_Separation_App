@@ -50,7 +50,7 @@ public class ShootActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoot);
 
-        //TODO는 애플리케이션을 처음 시작할 때 카메라의 허가 요청청
+        //TODO는 애플리케이션을 처음 시작할 때 카메라의 허가 요청
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_DENIED){
